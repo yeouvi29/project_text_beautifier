@@ -1,0 +1,122 @@
+.control-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 20px;
+    align-items: space-around;
+    padding-left: 5px;
+}
+
+.title {
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    color: #0F044C;
+    border-radius: 5px;
+    display: flex;
+    font-family: Open Sans;
+    font-size: 23px;
+    font-weight: 600;
+    justify-content: center;
+    margin-top: 10%px;
+    padding: 0;
+}
+
+.form {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.font-container label {
+    font-weight: 600;
+}
+
+.font-container select {
+    width: 150px;
+    margin-top: 5px;
+    border: 3px solid #FB9300;
+}
+.slide-container {
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide-container label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 150px;
+  height: 10px;
+  background: #FB9300;
+  border-radius: 5px;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  background: #00C1D4;
+  cursor: pointer;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.radio {
+    width: 15px;
+}
+
+.radio-container label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 2px;
+}
+.radio-container p {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.radio-container input {
+    margin-right: 5px;
+}
+
+.btn-generate {
+    width: 200px;
+    height: 50px;
+    background-color: #FB9300;
+    border: 5px solid #FFF5B7;
+    border-radius: 5px;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 600;
+    align-self: center;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    
+    &:hover {
+        background-color: #fcb149;
+    }
+    
+    &:active {
+        outline: none;
+        transform: translateY(-1px);
+        box-shadow: 0 .5px 1rem rgba(#000, .2);
+    }
+}

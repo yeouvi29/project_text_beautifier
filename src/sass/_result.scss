@@ -1,0 +1,62 @@
+.result-container {
+  width: 90%;
+  height: 50vh;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 200px;
+  overflow: auto;
+}
+
+.result {
+  height: 80px;
+  width: 80%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 2px;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+
+.delete {
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  border-radius: 5px;
+  color: #d2e603;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: none;
+  font-family: "Hanalei Fill", cursive;
+  font-size: 15px;
+  font-family: arial;
+  border: 1px solid #d2e603;
+  border-radius: 2px;
+  position: absolute;
+  top: 2px;
+  right: -23px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import randomcolor from "randomcolor";
-import Control from "./compoenets/Control";
+import Control from "./components/Control";
 import Preview from "./components/Preview";
 import Result from "./components/Result";
 import TextInput from "./components/TextInput";

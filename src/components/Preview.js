@@ -1,34 +1,34 @@
 import React, { useState, useEffect } from "react";
-import "./../sass/main.scss";
+// import "./../sass/main.scss";
 
 function Preview(props) {
-  const [size, setSize] = useState(props.result.rangeValue);
-  const [font, setFont] = useState(props.result.fontType);
-  const [textColor, setTextColor] = useState(props.result.textColor);
-  const [outlineColor, setOutlineColor] = useState(props.result.outlineColor);
+  const [size, setSize] = useState(props.preview.rangeValue);
+  const [font, setFont] = useState(props.preview.fontType);
+  const [textColor, setTextColor] = useState(props.preview.textColor);
+  const [outlineColor, setOutlineColor] = useState(props.preview.outlineColor);
   const [backgroundColor, setBackgroundColor] = useState(
-    props.result.backgroundColor
+    props.preview.backgroundColor
   );
 
   useEffect(() => {
-    setSize(+props.result.rangeValue);
-  }, [props.result.rangeValue]);
+    setSize(+props.preview.rangeValue);
+  }, [props.preview.rangeValue]);
 
   useEffect(() => {
-    setFont(props.result.fontType);
-  }, [props.result.fontType]);
+    setFont(props.preview.fontType);
+  }, [props.preview.fontType]);
 
   useEffect(() => {
-    setTextColor(props.result.textColor);
-  }, [props.result.textColor]);
+    setTextColor(props.preview.textColor);
+  }, [props.preview.textColor]);
 
   useEffect(() => {
-    setOutlineColor(props.result.outlineColor);
-  }, [props.result.outlineColor]);
+    setOutlineColor(props.preview.outlineColor);
+  }, [props.preview.outlineColor]);
 
   useEffect(() => {
-    setBackgroundColor(props.result.backgroundColor);
-  }, [props.result.backgroundColor]);
+    setBackgroundColor(props.preview.backgroundColor);
+  }, [props.preview.backgroundColor]);
 
   return (
     <div className="preview-container">
@@ -43,7 +43,7 @@ function Preview(props) {
           backgroundColor: backgroundColor,
         }}
       >
-        {props.result.textInput}
+        {props.preview.textInput}
       </div>
     </div>
   );

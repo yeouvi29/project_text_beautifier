@@ -6,29 +6,24 @@ import Result from "./components/Result";
 import TextInput from "./components/TextInput";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      textInput: "",
-      fontType: "Arial",
-      rangeValue: 16,
-      textColor: "black",
-      outlineColor: "#ffffff00",
-      backgroundColor: "#ffffff",
-      colorProperties: "textColor",
-      count: 0,
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  state = {
+    textInput: "",
+    fontType: "Arial",
+    rangeValue: 16,
+    textColor: "black",
+    outlineColor: "#ffffff00",
+    backgroundColor: "#ffffff",
+    colorProperties: "textColor",
+    count: 0,
+    result: [],
+  };
 
-  handleChange(event) {
-    const { name, value, type } = event.target;
+  handleChange = (event) => {
+    const { name, value } = event.target;
     this.setState({ [name]: value });
-  }
+  };
 
-  handleClick(event) {
+  handleClick = (event) => {
     if (event.target.closest(".color-container")) {
       if (!event.target.closest(".color")) return;
       const id = event.target.closest(".color").id;
@@ -37,37 +32,72 @@ class App extends Component {
         ? this.setState({ [this.state.colorProperties]: random })
         : this.setState({ [this.state.colorProperties]: id });
     } else if (event.target.closest(".delete")) {
-      event.target.closest(".result").remove();
+      if (!event.target.closest(".result")) return;
+      const targetId = event.target.closest(".result").id;
+      this.setState((prev) => {
+        return {
+          ...prev,
+          result: prev.result.filter((item) => item.id !== +targetId),
+        };
+      });
     }
-  }
+  };
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
-    const deleteDiv = document.createElement("div");
-    const newDiv = document.querySelector(".preview").cloneNode(true);
 
-    newDiv.classList.add("result", "clearfix");
-    newDiv.classList.remove("preview");
-    newDiv.setAttribute("id", this.state.count);
-    deleteDiv.classList.add("delete");
-    deleteDiv.innerHTML = "X";
-    newDiv.innerHTML = this.state.textInput;
-    document.querySelector(".result-container").appendChild(newDiv);
-    newDiv.appendChild(deleteDiv);
-    this.state.count++;
-  }
+    this.setState((prev) => {
+      const state = this.state;
 
-  handleTest(event) {
-    console.log("test");
-  }
-
+      return {
+        ...prev,
+        count: prev.count + 1,
+        result: [
+          ...prev.result,
+          {
+            textInput: state.textInput,
+            fontType: state.fontType,
+            rangeValue: state.rangeValue,
+            textColor: this.state.textColor,
+            outlineColor: this.state.outlineColor,
+            backgroundColor: this.state.backgroundColor,
+            colorProperties: this.state.colorProperties,
+            id: this.state.count,
+          },
+        ],
+      };
+    });
+    document.querySelector(".input").value = "";
+  };
+  handleClear = () => {
+    this.setState((prev) => {
+      return {
+        ...prev,
+        textInput: "",
+        fontType: "Arial",
+        rangeValue: 16,
+        textColor: "black",
+        outlineColor: "#ffffff00",
+        backgroundColor: "#ffffff",
+        colorProperties: "textColor",
+      };
+    });
+  };
   render() {
     return (
       <div className="container border">
         <div className="container-left">
-          <TextInput input={this.state} handleChange={this.handleChange} />
-          <Preview result={this.state} />
-          <Result result={this.state} handleClick={this.handleClick} />
+          <TextInput
+            input={this.state.textInput}
+            handleChange={this.handleChange}
+            handleClick={this.handleClear}
+          />
+          <Preview preview={this.state} />
+          <Result
+            result={this.state.result}
+            handleClick={this.handleClick}
+            handleSubmit={this.handleSubmit}
+          />
         </div>
         <div className="container-right">
           <Control

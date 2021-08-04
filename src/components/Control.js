@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import randomcolor from "randomcolor";
-import "./../sass/main.scss";
+// import "./../sass/main.scss";
 
 function Control(props) {
   const [color, setColor] = useState("grey");

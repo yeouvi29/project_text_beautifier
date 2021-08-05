@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/scrimba-challenge-text-beautifier/static/css/main.152d7156.chunk.css",
-    "main.js": "/scrimba-challenge-text-beautifier/static/js/main.a34647f2.chunk.js",
-    "main.js.map": "/scrimba-challenge-text-beautifier/static/js/main.a34647f2.chunk.js.map",
+    "main.css": "/scrimba-challenge-text-beautifier/static/css/main.4b93ccf6.chunk.css",
+    "main.js": "/scrimba-challenge-text-beautifier/static/js/main.b708ed70.chunk.js",
+    "main.js.map": "/scrimba-challenge-text-beautifier/static/js/main.b708ed70.chunk.js.map",
     "runtime-main.js": "/scrimba-challenge-text-beautifier/static/js/runtime-main.bcdbd5e5.js",
     "runtime-main.js.map": "/scrimba-challenge-text-beautifier/static/js/runtime-main.bcdbd5e5.js.map",
     "static/js/2.3a76d2df.chunk.js": "/scrimba-challenge-text-beautifier/static/js/2.3a76d2df.chunk.js",
     "static/js/2.3a76d2df.chunk.js.map": "/scrimba-challenge-text-beautifier/static/js/2.3a76d2df.chunk.js.map",
     "index.html": "/scrimba-challenge-text-beautifier/index.html",
-    "static/css/main.152d7156.chunk.css.map": "/scrimba-challenge-text-beautifier/static/css/main.152d7156.chunk.css.map",
+    "static/css/main.4b93ccf6.chunk.css.map": "/scrimba-challenge-text-beautifier/static/css/main.4b93ccf6.chunk.css.map",
     "static/js/2.3a76d2df.chunk.js.LICENSE.txt": "/scrimba-challenge-text-beautifier/static/js/2.3a76d2df.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bcdbd5e5.js",
     "static/js/2.3a76d2df.chunk.js",
-    "static/css/main.152d7156.chunk.css",
-    "static/js/main.a34647f2.chunk.js"
+    "static/css/main.4b93ccf6.chunk.css",
+    "static/js/main.b708ed70.chunk.js"
   ]
 }

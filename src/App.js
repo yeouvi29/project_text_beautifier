@@ -19,8 +19,8 @@ class App extends Component {
       "Lora",
       "Open Sans",
       "Poppins",
-      "Sacramnento",
-      "Ubunto",
+      "Sacramento",
+      "Ubuntu",
       "Hanalei Fill",
       "Luckiest Guy",
       "Montserrat",
@@ -57,15 +57,15 @@ class App extends Component {
       const chooseRandom = Math.floor(Math.random() * catArray.length);
       const randomFont = Math.floor(Math.random() * 10);
       const randomSize = 50 - Math.floor(Math.random() * 35);
+      const text = (prev) => {
+        return this.state.textInput === "" || /Meow/.test(this.state.textInput)
+          ? `Meow ${catArray[chooseRandom]}`
+          : this.state.textInput;
+      };
       this.setState((prev) => {
         return {
           ...prev,
-          textInput:
-            this.state.textInput === "" ||
-            this.state.textInput ===
-              prev.result[prev.result.length - 1].textInput
-              ? `Meow ${catArray[chooseRandom]}`
-              : this.state.textInput,
+          textInput: text(prev),
           fontType: this.state.fontFamily[randomFont],
           rangeValue: randomSize,
           textColor: randomcolor(),

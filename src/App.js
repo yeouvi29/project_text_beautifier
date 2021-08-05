@@ -14,6 +14,18 @@ class App extends Component {
     outlineColor: "#ffffff00",
     backgroundColor: "#ffffff",
     colorProperties: "textColor",
+    fontFamily: [
+      "Roboto",
+      "Lora",
+      "Open Sans",
+      "Poppins",
+      "Sacramnento",
+      "Ubunto",
+      "Hanalei Fill",
+      "Luckiest Guy",
+      "Montserrat",
+      "Pacifico",
+    ],
     count: 0,
     result: [],
   };
@@ -40,6 +52,28 @@ class App extends Component {
           result: prev.result.filter((item) => item.id !== +targetId),
         };
       });
+    } else if (event.target.closest(".btn-random")) {
+      const catArray = ["😺", "😸", "😹", "😻", "😼", "😽", "🙀"];
+      const chooseRandom = Math.floor(Math.random() * catArray.length);
+      const randomFont = Math.floor(Math.random() * 10);
+      const randomSize = 50 - Math.floor(Math.random() * 35);
+      this.setState((prev) => {
+        return {
+          ...prev,
+          textInput:
+            this.state.textInput === "" ||
+            this.state.textInput ===
+              prev.result[prev.result.length - 1].textInput
+              ? `Meow ${catArray[chooseRandom]}`
+              : this.state.textInput,
+          fontType: this.state.fontFamily[randomFont],
+          rangeValue: randomSize,
+          textColor: randomcolor(),
+          outlineColor: randomcolor(),
+          backgroundColor: randomcolor(),
+          id: this.state.count,
+        };
+      });
     }
   };
 
@@ -47,17 +81,15 @@ class App extends Component {
     event.preventDefault();
 
     this.setState((prev) => {
-      const state = this.state;
-
       return {
         ...prev,
         count: prev.count + 1,
         result: [
           ...prev.result,
           {
-            textInput: state.textInput,
-            fontType: state.fontType,
-            rangeValue: state.rangeValue,
+            textInput: this.state.textInput,
+            fontType: this.state.fontType,
+            rangeValue: this.state.rangeValue,
             textColor: this.state.textColor,
             outlineColor: this.state.outlineColor,
             backgroundColor: this.state.backgroundColor,
@@ -67,8 +99,8 @@ class App extends Component {
         ],
       };
     });
-    document.querySelector(".input").value = "";
   };
+
   handleClear = () => {
     this.setState((prev) => {
       return {
@@ -83,6 +115,7 @@ class App extends Component {
       };
     });
   };
+
   render() {
     return (
       <div className="container border">

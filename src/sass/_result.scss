@@ -1,14 +1,23 @@
 .result-container {
-  width: 90%;
-  height: 50vh;
-  flex-wrap: wrap;
   position: absolute;
   top: 200px;
+  width: 90%;
+  height: 65%;
+  display: flex;
   overflow: auto;
 }
 
+.result-container-scroll {
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  align-items: flex-start;
+  // flex-wrap: inherit;
+}
+
 .result {
-  height: 80px;
+  min-height: 80px;
   width: 80%;
   border-radius: 5px;
   display: flex;

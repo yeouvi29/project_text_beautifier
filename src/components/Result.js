@@ -7,10 +7,15 @@ class Result extends PureComponent {
   render() {
     const { result } = this.props;
     return (
-      <div className="result-container" onClick={this.props.handleClick}>
-        {result.map((item) => (
-          <ResultItems style={item} key={uuidv4()} />
-        ))}
+      <div className="result-container">
+        <div
+          className="result-container-scroll"
+          onClick={this.props.handleClick}
+        >
+          {result.map((item) => (
+            <ResultItems style={item} key={uuidv4()} />
+          ))}
+        </div>
       </div>
     );
   }
